@@ -1,0 +1,21 @@
+version: '3.3'
+
+services: 
+
+    mirror:
+        build: .
+        command: /centos-mirror/mirror.sh
+        volumes:
+            - "./mirror.sh:/centos-mirror/mirror.sh:ro"
+            - "./mirror:/centos-mirror/downloads"
+
+    server:
+        build:
+            context: .
+            dockerfile: nginx.Dockerfile
+        restart: always
+        command: [nginx-debug, '-g', 'daemon off;']
+        volumes:
+            - "./mirror:/centos-mirror/downloads:ro"
+        ports:
+            - "8080:80"
