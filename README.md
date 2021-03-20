@@ -24,7 +24,7 @@
 
 1. Check your mirroring succeeded in `./mirror/*` or typing `du -sh ./mirror` to check the volume
 
-    The default configuration should make you download _47G_
+    The default configuration should make you download _22G_
 
 2. Run the server :
 
@@ -36,11 +36,28 @@
 
 ## Client configuration
 
-To point your Alpine clients to your mirror, update their `/etc/apk/repositories` file as follow :
+To point your CentOS clients to your mirror, create a `/etc/yum.repos.d/localmirror.repo` file as follow :
 
 ```txt
-http://localhost:8080/v3.13/main
-http://localhost:8080/v3.13/community
+[mymirror-base]
+name=My CentOS 7 local mirror for os packages
+baseurl=http://localhost:8080/7/os/x86_64/
+enabled=1
+
+[mymirror-extras]
+name=My CentOS 7 local mirror for extras packages
+baseurl=http://localhost:8080/7/extras/x86_64/
+enabled=1
+
+[mymirror-updates]
+name=My CentOS 7 local mirror for updates packages
+baseurl=http://localhost:8080/7/updates/x86_64/
+enabled=1
+
+[mymirror-centosplus]
+name=My CentOS 7 local mirror for centosplus packages
+baseurl=http://localhost:8080/7/centosplus/x86_64/
+enabled=1
 ```
 
 :point_right: Feel free to add a reverse proxy or update the [nginx configuration file](./nginx.conf) to secure the mirror with SSL/TLS  
