@@ -7,7 +7,7 @@ services:
         command: /centos-mirror/mirror.sh
         volumes:
             - "./mirror.sh:/centos-mirror/mirror.sh:ro"
-            - "./mirror:/centos-mirror/downloads"
+            - "./mirror:/downloads"
 
     server:
         build:
@@ -16,6 +16,6 @@ services:
         restart: always
         command: [nginx-debug, '-g', 'daemon off;']
         volumes:
-            - "./mirror:/centos-mirror/downloads:ro"
+            - "./mirror:/downloads:ro"
         ports:
             - "8080:80"
