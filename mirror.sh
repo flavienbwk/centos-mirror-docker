@@ -4,7 +4,7 @@ set -ex
 
 version="7"
 src=http://centos.mirrors.proxad.net/${version}
-dest=downloads
+dest=/downloads
 
 for arch in "x86_64"
 do
