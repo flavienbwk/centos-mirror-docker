@@ -42,21 +42,25 @@ To point your CentOS clients to your mirror, create a `/etc/yum.repos.d/localmir
 [mymirror-base]
 name=My CentOS 7 local mirror for os packages
 baseurl=http://localhost:8080/7/os/x86_64/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 enabled=1
 
 [mymirror-extras]
 name=My CentOS 7 local mirror for extras packages
 baseurl=http://localhost:8080/7/extras/x86_64/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 enabled=1
 
 [mymirror-updates]
 name=My CentOS 7 local mirror for updates packages
 baseurl=http://localhost:8080/7/updates/x86_64/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 enabled=1
 
 [mymirror-centosplus]
 name=My CentOS 7 local mirror for centosplus packages
 baseurl=http://localhost:8080/7/centosplus/x86_64/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 enabled=1
 ```
 
