@@ -38,7 +38,7 @@
 
 To point your CentOS clients to your mirror, create a `/etc/yum.repos.d/localmirror.repo` file as follow :
 
-```txt
+```conf
 [mymirror-base]
 name=My CentOS 7 local mirror for os packages
 baseurl=http://localhost:8080/7/os/$basearch/
